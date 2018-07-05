@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% block extrastyle %}{% endblock %}"/>
+    </head>
+    <body>
+        <header>
+            <div id="hdiv">
+                <a href="{% url 'homepage:home' %}"><img src="{% static 'img/logo.png' %}" width="190px" height="30px"></a>
+                <ul>
+                    <li><a href="{% url 'homepage:introduction' %}">학교안내</a></li>
+                    <li><a href="{% url 'homepage:subject' %}">교과안내</a></li>
+                    <li><a href="{% url 'homepage:news' %}">학교소식</a></li>
+                    <li><a href="{% url 'homepage:entrance' %}">입학안내</a></li>
+                </ul>
+            </div>
+        </header>
+        {% block content %}
+        {% endblock %}
+        <footer>
+            <div id="fdiv">
+                <div id="wrap">
+                    <div class="fdiv">
+                        <ul>
+                            <li><a href="{% url 'homepage:introduction' %}">학교안내</a></li>
+                            <hr>
+                            <li>학교목표</li>
+                            <li>교육과정</li>
+                            <li>선생님 소개</li>
+                            <li>오시는 길</li>
+                        </ul>
+                    </div>
+                    <div class="fdiv">
+                        <ul>
+                            <li><a href="{% url 'homepage:subject' %}">교과안내</a></li>
+                            <hr>
+                            <li>공통과목</li>
+                            <li>전공과목</li>
+                        </ul>
+                    </div>
+                    <div class="fdiv">
+                        <ul>
+                            <li><a href="{% url 'homepage:news' %}">학교소식</a></li>
+                            <hr>
+                            <li>코딩캠프</li>
+                        </ul>
+                    </div>
+                    <div class="fdiv">
+                        <ul>
+                            <li><a href="{% url 'homepage:entrance' %}">입학안내</a></li>
+                            <hr>
+                            <li>문의하기</li>
+                            <li>전화</li>
+                            <li>이메일</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="ffdiv">
+                    <p>Copyright ⓒ Seoul Music High School All Rights Reserved.</p>
+                    <hr>
+                    <p style="color: white;">비즈쿨 대안학교<br>
+                        경기도 오산시 고현동 남부대로 429 대표전화 : 031-668-3399 문의: 010-9089-3399</p>
+                    <hr>
+                </div>    
+            </div>
+            
+        </footer>
+    </body>
+</html>

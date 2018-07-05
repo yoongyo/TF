@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for i in local %}
+    <ul>
+        <!--미디어 불러오기 미치는줄 알았다...-->
+        <li>{{ i }}<br><a href="{{ i.local_category }}"><img src="{{ i.local_img.url }}"/></a></li>
+    </ul>
+    {% endfor %}
+</body>
+</html>
