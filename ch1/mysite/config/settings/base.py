@@ -32,7 +32,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'homepage',
+    'travel',
+    'accounts',
+
+    # 로그인 부분
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.naver',
+    'allauth.socialaccount.providers.kakao',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +78,35 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
+# 로그인 부분
+AUTHENTICTION_BACKEDS=[
+    'django.contrib.auth.backends.ModelBackend',            # 기본 인증 백엔드
+    'allauth.account.auth_backends.AuthenticationBacked',   # 추가
+]
+
+# 로그인 부분
+# 등록하지 않으면, 각 요청 시에 host 명의 인스턴스를 찾습니다.
+SITE_ID = 1
+
+# 로그인 부분
+# 이메일 확인을 하지 않음
+SOCIALACCOUNT_EMAIL_VERIFICATION ='none'
+
+# 로그인 부분
+# 기본 로그인 페이지 URL 을 지정
+# login_required 장식자 등에 의해서 사용
+LOGIN_URL = '/accounts/login/'
+# 로그인 완료 후에 next 인자가 지정되면 해당 URL 로 페이지 이동
+# next 인자가 없으면 본 URL 로 이동
+LOGIN_REDIRECT_URL = '/accounts/profile/'
+# 로그아웃 완료 후에
+# - next_page 인자가 지정되면 next_page URL 로 페이지 이동
+# - next_page 인자가 없으면 LOGOUT_REDIRECT_URL 이 지정되었을 경우 해당 URL로 이동
+# - next_page 인자가 지정되지 않고 LOGOUT_REDIRECT_URL이 None일 경우
+# redirect를 수행하지 않고 'registration/logged_out.html' 템플릿 렌더링
+LOGOUT_REDIRECT_URL = None
+# 인증에 사용할 커스텀 User 모델 지정, '앱이름.모델명'
+AUTH_USER_MODEL = 'auth.User'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
