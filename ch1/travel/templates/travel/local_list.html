@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +11,13 @@
 <body>
     {% for i in local %}
     <ul>
+        <div style="border:1px solid black; width:30%;">
         <!--미디어 불러오기 미치는줄 알았다...-->
-        <li>{{ i }}<br><a href="{{ i.local_category }}"><img src="{{ i.local_img.url }}"/></a></li>
+        <li><h3>{{ i }}</h3><br><a href="{{ i.local_category }}"><img src="{{ i.local_img.url }}"/></a></li>
+        </div>
     </ul>
     {% endfor %}
 </body>
 </html>
+
+{% endblock %}

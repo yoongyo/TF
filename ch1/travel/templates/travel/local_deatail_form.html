@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for i in local_deatil %}
+
+<div>title : {{ i.title }}<br>name: {{i.name}}<br>price : {{ i.price }}<br>time : {{ i.time }}<br> Tour Local : {{ i.local }} <br>Enable Language : {{ i.language }}<br>Visited_country : {{ i.visited_country }} <br>Next_country : {{ i.next_country }}<br>Interest : {{i.interest}} <br> Content : {{ i.contet }}<br> Guide at: {{i.guide_at}}<br>Email : {{i.email }}<br><a href="#">APPLY</a>
+</div>
+
+<a href="#">APPLY</a>
+{% endblock %}

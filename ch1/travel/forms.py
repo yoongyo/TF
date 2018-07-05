@@ -11,10 +11,16 @@ class PostForm(forms.ModelForm):
             'title',
             'content',
             'language',
-            'visited_contry',
-            ''
+            'visited_country',
+            'next_country',
+            'guide_at',
+            'email',
+            'interest',
+            'img',
+            'time',
+            'price',
+            'local'
         }
-        exclude = ()
 
     def save(self, commit=True):
         post = Post(**self.cleaned_data)

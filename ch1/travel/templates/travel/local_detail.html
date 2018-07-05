@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,9 +9,15 @@
 </head>
 <body>
     {% for i in local_list %}
+    <div style="border:1px solid black">
     <ul>
-        <li>{{ i }}<br>{{ i.local }} <br>{{ i.language }}<br>{{ i.interest }}<br>{{ i.content }}</li>
+        <div style="border:1px solid black; width:30%; height:30%;">
+        <li><a href="{{ i.name }}" style="text-decoration: none;"><h2>"{{ i.title }}"</h2></a><br>{{ i.price }} <br> {{ i.time }}<br>Enable Language : {{ i.language }}<br>visited Country : {{ i.visited_country }}<br>Interset : {{ i.interest }}<br></li>
+        </div>
     </ul>
+    </div>
     {% endfor %}
 </body>
 </html>
+
+{% endblock %}

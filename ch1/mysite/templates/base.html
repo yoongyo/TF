@@ -1,71 +1,90 @@
 <!DOCTYPE html>
 <html>
     <head>
-    {% load staticfiles %}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}"/>
-        <link rel="stylesheet" type="text/css" href="{% block extrastyle %}{% endblock %}"/>
+        <style>
+            *{
+                margin: 0;
+            }
+            header{
+                background-color: rgb(15,58,114);
+                border-bottom: 1px solid black;
+            }
+            header #hdiv {
+                width: 80%;
+                margin: 0 auto;
+                line-height: 60px;
+            }
+            header img{
+                vertical-align: middle;
+            }
+            header #hdiv ul{
+                float: right;
+                vertical-align: middle;
+            }
+            header #hdiv ul li{
+                display: inline-block;
+                margin-left: 30px;
+            }
+            header #hdiv a{
+                display: inline-block;
+                font-size: 18px;
+                text-decoration: none;
+                color: white;
+            }
+            article{
+                clear:both;
+            }
+            footer{
+                clear: both;
+                background-color: rgb(15,58,114);
+            }
+            footer #fdiv{
+                width:68%;
+                margin: 0 auto;
+                padding-top: 50px;
+            }
+            footer #fdiv #wrap{
+                display: flex;
+                padding-bottom: 10px;
+            }
+            footer #fdiv .fdiv{
+                margin-right: 120px;
+            }
+            footer #fdiv .fdiv li{
+                list-style: none;
+                color: white;
+                margin-top: 20px;
+            }
+            footer #fdiv #ffdiv{
+                padding:0px 30px 10px 30px;
+            }
+            footer #fdiv #ffdiv p{
+                padding: 20px 0; font-size:14px;
+                color: gray;
+            }
+            footer #fdiv #wrap .fdiv a{
+                color: white;
+                text-decoration: none;
+            }    
+        </style>
+        <link rel="stylesheet"
+        href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
     <body>
         <header>
             <div id="hdiv">
-                <a href="{% url 'homepage:home' %}"><img src="{% static 'img/logo.png' %}" width="190px" height="30px"></a>
+                {% load static %}
+                <a href="{% url 'travel:main' %}"><img src="{% static 'img/logo.png' %}" width="190px" height="30px"></a>
                 <ul>
-                    <li><a href="{% url 'homepage:introduction' %}">학교안내</a></li>
-                    <li><a href="{% url 'homepage:subject' %}">교과안내</a></li>
-                    <li><a href="{% url 'homepage:news' %}">학교소식</a></li>
-                    <li><a href="{% url 'homepage:entrance' %}">입학안내</a></li>
+                    <li><a href="#">Language</a></li>
+                    <li><a href="{% url 'travel:local_list' %}">Tour</a></li>
+                    <li><a href="#">Personalized</a></li>
+                    <li><a href="#">Become a guide</a></li>
+                    <li><a href="{% url 'accounts:login' %}">Login</a></li>
                 </ul>
             </div>
         </header>
         {% block content %}
         {% endblock %}
-        <footer>
-            <div id="fdiv">
-                <div id="wrap">
-                    <div class="fdiv">
-                        <ul>
-                            <li><a href="{% url 'homepage:introduction' %}">학교안내</a></li>
-                            <hr>
-                            <li>학교목표</li>
-                            <li>교육과정</li>
-                            <li>선생님 소개</li>
-                            <li>오시는 길</li>
-                        </ul>
-                    </div>
-                    <div class="fdiv">
-                        <ul>
-                            <li><a href="{% url 'homepage:subject' %}">교과안내</a></li>
-                            <hr>
-                            <li>공통과목</li>
-                            <li>전공과목</li>
-                        </ul>
-                    </div>
-                    <div class="fdiv">
-                        <ul>
-                            <li><a href="{% url 'homepage:news' %}">학교소식</a></li>
-                            <hr>
-                            <li>코딩캠프</li>
-                        </ul>
-                    </div>
-                    <div class="fdiv">
-                        <ul>
-                            <li><a href="{% url 'homepage:entrance' %}">입학안내</a></li>
-                            <hr>
-                            <li>문의하기</li>
-                            <li>전화</li>
-                            <li>이메일</li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="ffdiv">
-                    <p>Copyright ⓒ Seoul Music High School All Rights Reserved.</p>
-                    <hr>
-                    <p style="color: white;">비즈쿨 대안학교<br>
-                        경기도 오산시 고현동 남부대로 429 대표전화 : 031-668-3399 문의: 010-9089-3399</p>
-                    <hr>
-                </div>    
-            </div>
-            
-        </footer>
     </body>
 </html>

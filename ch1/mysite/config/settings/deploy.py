@@ -18,7 +18,7 @@ DATABASES = {
 
 
 
-MEDIA_URL = 'https://www.bizchool.com/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mysite', 'media')
 
 STATIC_URL = "https://www.bizchool.com/static/"

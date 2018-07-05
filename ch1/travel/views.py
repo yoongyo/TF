@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Category, Post
+from .forms import PostForm
 
 
 def main(request):
@@ -28,3 +29,30 @@ def local_detail(request, local):
     return render(request, 'travel/local_detail.html',{
         'local_list': qs
     })
+
+
+def local_detail_form(request, local ,name):
+    queryset = Post.objects.all()
+    path = request.path
+    print(path)
+    filter = path.split('/')[4]
+    print(filter)
+    qs = queryset.filter(name=filter)
+    return render(request, 'travel/local_detail_form.html',{
+        'local_detail': qs,
+        'filter':filter,
+    })
+
+
+
+def post_new(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save()
+            return redirect(post)
+    else:
+        form = PostForm()
+    return render(request, 'travel/post_form.html', {
+        'form': form,
+})

@@ -11,8 +11,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     url('admin/', admin.site.urls),
-    url(r'^travel/', include('travel.urls')),
-    url(r'^accounts/', include('accounts.urls')),
+    url(r'^travel/', include('travel.urls', namespace='travel')),
+    url(r'^accounts/', include('accounts.urls', namespace='accounts')),
 ]
 
 
